@@ -9,7 +9,8 @@
 //   },
 // };
 
-const destId = 1401516;
+
+// const destId = 1401516;
 // City Group - Boston - Search Results -
 //Results - Shows 25 of 1379 hotel results -
 //Pagination shows how many pages
@@ -85,11 +86,118 @@ const options = {
   },
 };
 
+// axios
+//   .request(options)
+//   .then(function (response) {
+//     console.log(response.data);
+//   })
+//   .catch(function (error) {
+//     console.error(error);
+//   });
+
+
+// let destId;
+
+const validate = () => {
+  const firstname = document.getElementById("firstname").value;
+  const lastname = document.getElementById("lastname").value;
+  const email = document.getElementById("email").value;
+  console.log(email);
+
+  // checks for only letters in names
+  const regexpName = /^[A-Za-z]+$/;
+  const isValidFirstname = regexpName.test(String(firstname).toLowerCase());
+  const isValidLastname = regexpName.test(String(lastname).toLowerCase());
+
+  // checks for email pattern
+  // anything@anything.anything
+  const regexpEmail = /\S+@\S+\.\S+/;
+  const isValidEmail = regexpEmail.test(String(email).toLowerCase());
+
+  if (isValidEmail) {
+    console.log("valid email");
+  } else {
+    alert("Please enter a valid email address");
+  }
+
+  if (isValidFirstname) {
+    console.log("valid first name");
+  } else {
+    alert("Please enter valid first name");
+  }
+
+  if (isValidLastname) {
+    console.log("valid last name");
+  } else {
+    alert("Please enter valid last name");
+  }
+
+  if (isValidEmail && isValidFirstname && isValidLastname) {
+    location.replace("destination.html");
+  }
+};
+
+const cityData = () => {
+  console.log("hello");
+  const city = document.getElementById("city").value;
+
+  const options = {
+    method: "GET",
+    url: "https://hotels4.p.rapidapi.com/locations/v2/search",
+    params: { query: city, locale: "en_US", currency: "USD" },
+    headers: {
+      "X-RapidAPI-Host": "hotels4.p.rapidapi.com",
+      "X-RapidAPI-Key": "e6432cbb9bmsh214a6bc7706df30p105b5fjsnd5530e346af1",
+    },
+  };
+
+
+  axios
+    .request(options)
+    .then(function (response) {
+      const destId = response.data.suggestions[0].entities[0].destinationId  
+      console.log(destId);
+    //   console.log(response.data)
+    })
+    // .then(propertyList(destId))
+    .catch(function (error) {
+      console.error(error);
+    });
+
+    // location.replace('details.html')
+
+};
+
+
+const propertyList = (destId) => {
+  const options = {
+  method: "GET",
+  url: "https://hotels4.p.rapidapi.com/properties/list",
+  params: {
+    destinationId: destId,
+    pageNumber: "1",
+    pageSize: "25",
+    checkIn: "2020-01-08",
+    checkOut: "2020-01-15",
+    adults1: "1",
+    sortOrder: "PRICE",
+    locale: "en_US",
+    currency: "USD",
+  },
+  headers: {
+    "X-RapidAPI-Host": "hotels4.p.rapidapi.com",
+    "X-RapidAPI-Key": "e6432cbb9bmsh214a6bc7706df30p105b5fjsnd5530e346af1",
+  },
+};
+
 axios
-  .request(options)
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.error(error);
-  });
+.request(options)
+.then(function (response) {
+  console.log(response.data)
+})
+.catch(function (error) {
+  console.error(error);
+});
+
+
+}
