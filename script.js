@@ -9,7 +9,6 @@
 //   },
 // };
 
-
 // const destId = 1401516;
 // City Group - Boston - Search Results -
 //Results - Shows 25 of 1379 hotel results -
@@ -95,7 +94,6 @@ const options = {
 //     console.error(error);
 //   });
 
-
 // let destId;
 
 const validate = () => {
@@ -137,11 +135,14 @@ const validate = () => {
   }
 };
 
-const cityData = () => {
+let hotelArray;
+
+const cityData = async (event) => {
+  // event.preventDefault()
   console.log("hello");
   const city = document.getElementById("city").value;
 
-  const options = {
+  const cityOptions = {
     method: "GET",
     url: "https://hotels4.p.rapidapi.com/locations/v2/search",
     params: { query: city, locale: "en_US", currency: "USD" },
@@ -151,53 +152,76 @@ const cityData = () => {
     },
   };
 
+  const cityResults = await axios.request(cityOptions);
+  const destId = cityResults.data.suggestions[0].entities[0].destinationId;
+  console.log(destId);
 
-  axios
-    .request(options)
-    .then(function (response) {
-      const destId = response.data.suggestions[0].entities[0].destinationId  
-      console.log(destId);
-    //   console.log(response.data)
-    })
-    // .then(propertyList(destId))
-    .catch(function (error) {
-      console.error(error);
-    });
+  // const locationOptions = {
+  //     method: 'GET',
+  //     url: 'https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete',
+  //     params: {query: city, lang: 'en_US', units: 'km'},
+  //     headers: {
+  //       'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
+  //       'X-RapidAPI-Key': 'e6432cbb9bmsh214a6bc7706df30p105b5fjsnd5530e346af1'
+  //     }
+  //   };
 
-    // location.replace('details.html')
+  //   const cityResults = await axios.request(locationOptions)
+  //   console.log(cityResults.data.data.Typeahead_autocomplete)
+  //   const destId = cityResults.data.data.Typeahead_autocomplete.results[0].detailsV2.locationId
+  //   console.log(destId)
 
+  //   const attractionOptions = {
+  //     method: 'GET',
+  //     url: 'https://travel-advisor.p.rapidapi.com/attractions/get-details',
+  //     params: {location_id: destId, currency: 'USD', lang: 'en_US'},
+  //     headers: {
+  //       'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
+  //       'X-RapidAPI-Key': 'e6432cbb9bmsh214a6bc7706df30p105b5fjsnd5530e346af1'
+  //     }
+  //   };
+
+  //   const attractionResults = await axios.request(attractionOptions)
+
+  //   console.log(attractionResults.data)
+
+  const hotelOptions = {
+    method: "GET",
+    url: "https://hotels4.p.rapidapi.com/properties/list",
+    params: {
+      destinationId: destId,
+      pageNumber: "1",
+      pageSize: "25",
+      checkIn: "2022-01-08",
+      checkOut: "2022-01-15",
+      adults1: "1",
+      sortOrder: "PRICE",
+      locale: "en_US",
+      currency: "USD",
+    },
+    headers: {
+      "X-RapidAPI-Host": "hotels4.p.rapidapi.com",
+      "X-RapidAPI-Key": "e6432cbb9bmsh214a6bc7706df30p105b5fjsnd5530e346af1",
+    },
+  };
+
+  const hotelResults = await axios.request(hotelOptions);
+
+  hotelArray = hotelResults.data.data.body.searchResults.results;
+  window.localStorage.setItem("hotels", JSON.stringify(hotelArray));
+  //   location.replace('details.html')
+  //   console.log(hotelArray)
+  const resultsButton = document.createElement("a");
+  resultsButton.innerText = "See Results";
+  resultsButton.setAttribute("href", "details.html")
+  const form = document.getElementById("destination_form");
+  form.appendChild(resultsButton)
 };
 
 
-const propertyList = (destId) => {
-  const options = {
-  method: "GET",
-  url: "https://hotels4.p.rapidapi.com/properties/list",
-  params: {
-    destinationId: destId,
-    pageNumber: "1",
-    pageSize: "25",
-    checkIn: "2020-01-08",
-    checkOut: "2020-01-15",
-    adults1: "1",
-    sortOrder: "PRICE",
-    locale: "en_US",
-    currency: "USD",
-  },
-  headers: {
-    "X-RapidAPI-Host": "hotels4.p.rapidapi.com",
-    "X-RapidAPI-Key": "e6432cbb9bmsh214a6bc7706df30p105b5fjsnd5530e346af1",
-  },
+
+const displayResults = (event) => {
+  event.preventDefault();
+  const results = JSON.parse(window.localStorage.getItem('hotels'))
+  console.log(results)
 };
-
-axios
-.request(options)
-.then(function (response) {
-  console.log(response.data)
-})
-.catch(function (error) {
-  console.error(error);
-});
-
-
-}
