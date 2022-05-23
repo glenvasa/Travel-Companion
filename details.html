@@ -8,40 +8,54 @@
     <title>Destination Details</title>
   </head>
   <body>
-    <div class="destination_container">
-        <nav style="background-color: royalblue" class="nav">
-          <ul class="nav_list">
-            <li class="nav_link_home">
-              <a href="index.html">Home</a>
-            </li>
-            <li class="nav_link_destination">
-                <a href="destination.html">Destination Page</a>
-              </li>
-          </ul>
-        </nav>
-        <!-- <h1 class="destination_header">Details Page</h1> -->
-      
-          <div class="results_container" id="results_container">
-              <div class="result_cards" id="result_cards"></div>
-          <form class="destination_form" id="destination_form">
-            <h3 class="destination_form_header" id="destFormHeader">
-              View Results Below
-            </h3>
-            <button onclick=displayResults(event) class="results_button" id='results_button'>See Results</button>
-            <!-- <label for="city" class="destination_form_label">City</label>
-            <input type="text" id="city" class="destination_form_input" /> -->
-            <!-- <label for="lastname" class="destination_form_label">Lastname</label>
-            <input type="text" id="lastname" class="destination_form_input" />
-            <label for="email" class="destination_form_label">Email</label>
-            <input type="email" id="email" class="destination_form_input" /> -->
-            <!-- <input type="button" class="destination_form_submit" onclick="cityData()" value="Submit"/> -->
-          </form>
-        
-
-         </div>
-        
-      </div>
-
+    <div class="destination_container" id="destination_container">
+      <nav style="background-color: black" class="nav">
+        <ul class="nav_list">
+          <li class="nav_link_home">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="nav_link_destination">
+            <a href="destination.html">Destination</a>
+          </li>
+          <li class="nav_link_results">
+            <a href="results.html">Results</a>
+          </li>
+        </ul>
+      </nav>
+   <div class="details_container" id="details_container">
+    <div class="loader" id="loader"></div>
+      <div class="details_box" id="details_box">
+       
+          <h3 class="details_header" id="detailsHeader">
+            Hotel Details
+          </h3>
+          <div class="button_container" id="button_container" style="display:flex">
+          <button
+            type="button"
+            onclick="displayHotelImages()"
+            class="details_button"
+            id="details_button"
+          >
+            See Images
+          </button>
+          <button
+            type="button"
+            onclick="displayHotelDetails()"
+            class="details_button"
+            id="details_button"
+            style="margin-left: 5px"
+          >
+            Hotel Info
+          </button>
+          </div>
+    </div>
+    
+    <div class="pricing" id="pricing"></div>
+    <div class="show_details" id="show_details">
+      <div class="amenitiesSection" id="amenitiesSection"></div>
+    </div>
+   </div>
+   <div class="images_container" id="images_container"></div>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
   </body>
