@@ -1,4 +1,5 @@
-.main_header, .destination_header {
+.main_header,
+.destination_header {
   position: absolute;
   top: 10%;
   left: 50%;
@@ -6,10 +7,10 @@
 }
 
 .main_container {
-  
 }
 
-.main_form, .destination_form {
+.main_form,
+.destination_form {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -25,104 +26,207 @@
   padding: 15px;
 }
 
-.main_form_header, .destination_form_header {
+.main_form_header,
+.destination_form_header {
   text-align: center;
 }
 
-.main_form_label, .destination_form_label {
+.main_form_label,
+.destination_form_label {
   margin-bottom: 5px;
   margin-top: 5px;
 }
 
-.main_form_input, .destination_form_input {
+.main_form_input,
+.destination_form_input {
   margin-bottom: 5px;
   width: 45%;
 }
 
-.main_form_submit, .destination_form_submit {
+.main_form_submit,
+.destination_form_submit {
   margin-top: 10px;
   color: red;
   width: 30%;
   text-align: center;
-  
 }
 
 .destination_container {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .nav {
-    position: relative;
-    height: 50px;
-    width: 100vw;
-    margin-left: -10px;
-    margin-top: -20px;
-    
+  position: relative;
+  height: 60px;
+  width: 100vw;
+  margin-left: -10px;
+  margin-top: -20px;
 }
 
 .nav_list {
-    display: flex;
-    list-style: none;
-
+  display: flex;
+  list-style: none;
+  font-size: large;
 }
 
 .nav_link_home {
-    color: orange;
-    width: 150px;
-    text-align: center;
-    position: absolute;
-    top: 35%;
+  color: orange;
+  width: 150px;
+  text-align: center;
+  position: absolute;
+  top: 35%;
 }
 
 .nav_link_destination {
-    width: 200px;
-    color: orange;
-    position: absolute;
-    top: 35%;
-    left: 10%;
-    text-align: center;
+  width: 200px;
+  color: orange;
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  text-align: center;
 }
 
-.nav_link_home:hover, 
-.nav_link_destination:hover {
- color: white;
+.nav_link_results {
+  width: 200px;
+  color: orange;
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  text-align: center;
+}
+
+.nav_link_home:hover,
+.nav_link_destination:hover,
+.nav_link_results:hover {
+  color: white;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:visited {
-    color: inherit;
+  color: inherit;
 }
 
 .results_container {
-  
 }
 
 .result_cards {
-    display: grid;
-    grid: auto-flow 1fr / repeat(auto-fill, 20em);
-    min-height: 100vh;
-    justify-content: space-between;
-    align-content: safe center;
-    margin-left: 10%;
-    margin-right: 0%;
+  display: grid;
+  grid: auto-flow 1fr / repeat(auto-fill, 20em);
+  min-height: 100vh;
+  justify-content: space-between;
+  align-content: safe center;
+  margin-left: 10%;
+  margin-right: 0%;
 }
 
 .hotel_card {
-    width: 200px;
-    height: 200px;
-    border: 2px solid royalblue;
-    margin-top: 20px;
-    padding: 0 10px;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 2px 2px 2px royalblue;
-
+  width: 200px;
+  height: 200px;
+  border: 2px solid royalblue;
+  margin-top: 20px;
+  padding: 0 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px royalblue;
 }
 
 .hotel_name {
-    color: black;
-    text-decoration: underline;
+  color: black;
+  text-decoration: underline;
 }
+
+.details_box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+  border: 2px black solid;
+  box-shadow: 2px 2px 2px black;
+  padding: 15px;
+}
+
+.amenitiesSection {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.amenitiesContainer p{
+    color: lightgoldenrodyellow;
+    background-color: orange;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* .amenitiesContainer {
+    background-color: orange;
+} */
+
+.show_details {
+  display: block;
+  /* grid: auto-flow 1fr / repeat(auto-fill, 25em); */
+  /* min-height: 100vh; */
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 3%;
+}
+
+.images_container {
+  display: grid;
+  grid: auto-flow 1fr / repeat(auto-fill, 27em); 
+  min-height: 100vh;
+  margin-left: 11%;
+  margin-right: 0%;
+  margin-top: 3%;
+ 
+}
+
+.pricing {
+    text-align: center;
+    margin-top: 3%;
+    color: red;
+}
+
+table {
+    background-color: orange;
+    position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 3px;
+}
+
+tr, td {
+    margin-top: 5px !important;
+    margin-bottom: 5px;
+}
+
+.tableRow{ 
+    background-color: lightgoldenrodyellow;
+    margin-bottom: 5px;
+}
+
+
+.loader {
+    display: none;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid orange;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
