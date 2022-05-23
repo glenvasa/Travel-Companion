@@ -19,13 +19,15 @@
               </li>
           </ul>
         </nav>
-        <!-- <div class="main_container"> -->
-          <h1 class="destination_header">Details Page</h1>
+        <!-- <h1 class="destination_header">Details Page</h1> -->
+      
+          <div class="results_container" id="results_container">
+              <div class="result_cards" id="result_cards"></div>
           <form class="destination_form" id="destination_form">
             <h3 class="destination_form_header" id="destFormHeader">
               View Results Below
             </h3>
-            <button onclick=displayResults(event)>See Results</button>
+            <button onclick=displayResults(event) class="results_button" id='results_button'>See Results</button>
             <!-- <label for="city" class="destination_form_label">City</label>
             <input type="text" id="city" class="destination_form_input" /> -->
             <!-- <label for="lastname" class="destination_form_label">Lastname</label>
@@ -34,7 +36,9 @@
             <input type="email" id="email" class="destination_form_input" /> -->
             <!-- <input type="button" class="destination_form_submit" onclick="cityData()" value="Submit"/> -->
           </form>
-        <!-- </div> -->
+        
+
+         </div>
         
       </div>
 
