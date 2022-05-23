@@ -213,15 +213,28 @@ const cityData = async (event) => {
   //   console.log(hotelArray)
   const resultsButton = document.createElement("a");
   resultsButton.innerText = "See Results";
-  resultsButton.setAttribute("href", "details.html")
+  resultsButton.setAttribute("href", "details.html");
   const form = document.getElementById("destination_form");
-  form.appendChild(resultsButton)
+  form.appendChild(resultsButton);
 };
-
-
 
 const displayResults = (event) => {
   event.preventDefault();
-  const results = JSON.parse(window.localStorage.getItem('hotels'))
-  console.log(results)
+  const results = JSON.parse(window.localStorage.getItem("hotels"));
+  console.log(results);
+
+  const container = document.getElementById("result_cards");
+
+  results.map((result) => {
+    const card = document.createElement("div");
+    card.setAttribute('class', 'hotel_card')
+    const name = document.createElement("h3");
+    name.setAttribute('class', 'hotel_name')
+    name.innerText = result.name;
+    card.appendChild(name);
+    container.appendChild(card);
+
+    const form = document.getElementById('destination_form')
+    form.style.display = 'none'
+  });
 };
