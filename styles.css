@@ -46,9 +46,13 @@
 .main_form_submit,
 .destination_form_submit {
   margin-top: 10px;
-  color: red;
+  color: black;
   width: 30%;
+  height: 70%;
   text-align: center;
+  border: 3px solid orange;
+  background-color: orange;
+  border-radius: 3px;
 }
 
 .destination_container {
@@ -95,6 +99,15 @@
   text-align: center;
 }
 
+.nav_link_details {
+    width: 200px;
+    color: orange;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    text-align: center;
+}
+
 .nav_link_home:hover,
 .nav_link_destination:hover,
 .nav_link_results:hover {
@@ -112,6 +125,36 @@ a:visited {
 .results_container {
 }
 
+.resultsButton {
+    margin-top: 7px;
+    border: 1px solid orange;
+    padding: 4px;
+    border-radius: 3px;
+    background-color: orange;
+}
+
+.results_button {
+    padding: 3px;
+}
+
+button {
+    background-color: orange;
+    border: 2px solid orange;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 3px 5px;
+}
+
+.moreDetailsButton {
+    padding: 3px 4px;
+    border-radius: 3px;
+}
+
+button:hover {
+    
+   
+}
+
 .result_cards {
   display: grid;
   grid: auto-flow 1fr / repeat(auto-fill, 20em);
@@ -125,12 +168,13 @@ a:visited {
 .hotel_card {
   width: 200px;
   height: 200px;
-  border: 2px solid royalblue;
+  border: 2px solid orange;
+  background-color: navajowhite;
   margin-top: 20px;
   padding: 0 10px;
   text-align: center;
   border-radius: 5px;
-  box-shadow: 2px 2px 2px royalblue;
+  box-shadow: 2px 2px 2px orange;
 }
 
 .hotel_name {
@@ -161,9 +205,10 @@ a:visited {
 }
 
 .amenitiesContainer p{
-    color: lightgoldenrodyellow;
+    /* color: lightgoldenrodyellow; */
+   font-weight: 400;
     background-color: orange;
-    padding: 5px;
+    padding: 7px;
     border-radius: 3px;
 }
 
@@ -218,7 +263,7 @@ tr, td {
 
 .loader {
     display: none;
-    border: 16px solid #f3f3f3; /* Light grey */
+    border: 16px solid #f3f3f3; 
     border-top: 16px solid orange;
     border-radius: 50%;
     width: 70px;
