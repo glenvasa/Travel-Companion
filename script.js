@@ -67,7 +67,7 @@ const injectName = () => {
   );
   const fullName = document.createElement("h3");
   fullName.setAttribute("id", "fullName");
-  fullName.style.color = "orange";
+  fullName.style.color = "black";
   fullName.style.textShadow = ".5px .5px .5px gray";
   fullName.innerText = `${firstname}, we are searching for your city`;
   destinationFormHeader.before(fullName);
@@ -125,6 +125,7 @@ const cityData = async (event) => {
   //   console.log(hotelArray)
   const resultsButton = document.createElement("a");
   resultsButton.setAttribute("class", "resultsButton");
+  resultsButton.style.color = 'navajowhite';
   resultsButton.innerText = "Click Here";
   resultsButton.setAttribute("href", "results.html");
 //   const form = document.getElementById("destination_form");
@@ -247,7 +248,7 @@ const displayHotelDetails = async () => {
   const name = document.createElement("h2");
   name.innerText = hotelName;
   name.style.color = "black";
-  const specialPrice = document.createElement("h2");
+  const specialPrice = document.createElement("h3");
   specialPrice.innerText = `Current Special: ${price}/Night`;
   pricing.appendChild(name);
   pricing.appendChild(specialPrice);
@@ -281,6 +282,7 @@ const displayHotelDetails = async () => {
   const heading = document.createElement("th");
   heading.style.fontSize = "20px";
   heading.style.marginBottom = "10px";
+  heading.style.color = 'white'
   //   heading.style.textDecoration = 'underline'
   let attractionsTitle =
     detailResults.data.data.body.overview.overviewSections[1].title;
