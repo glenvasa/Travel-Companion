@@ -10,35 +10,44 @@
   <body>
     <div class="main_container">
       <h1 class="main_header">Travel Companion</h1>
-      <form class='font_form' id="font_form">
+      <form class="font_form" id="font_form">
         <p class="font_p">Choose website font:</p>
-        <select name="font_select" id="font_select" id="font_select">
-          <option value="0"></option>
+        <select name="font_select" id="font_select" id="font_select" style="color:navajowhite; background-color: black">
+          <option value="Oswald" class="oswald">Oswald</option>
           <option value="Montserrat" class="mont">Montserrat</option>
           <option value="Macondo" class="macondo">Macondo</option>
-          <option value="Oswald" class="oswald">Oswald</option>
+
           <option value="Oxygen" class="oxygen">Oxygen</option>
           <option value="Rubik" class="rubik">Rubik</option>
           <option value="Fira Sans" class="fira_sans">Fira Sans</option>
           <option value="Akshar" class="akshar">Akshar</option>
           <option value="Catamaran" class="catamaran">Catamaran</option>
-          <option value="Cormorant Garamond" class="cormorant_garamond">Cormorant Garamond</option>
+          <option value="Cormorant Garamond" class="cormorant_garamond">
+            Cormorant Garamond
+          </option>
           <option value="Padauk" class="padauk">Padauk</option>
-         
         </select>
-        <input type="submit" value="Submit" onclick="setFont(event)" class="font_submit">
+        <input
+          type="submit"
+          value="Submit"
+          onclick="setFont(event)"
+          class="font_submit"
+        />
       </form>
       <form action="destination.html" class="main_form" id="main_form">
-        <h3 class="main_form_header">
-          View Destination Page
-        </h3>
+        <h3 class="main_form_header">View Destination Page</h3>
         <label for="firstname" class="main_form_label">Firstname</label>
-        <input type="text" id="firstname" class="main_form_input" />
+        <input type="text" id="firstname" class="main_form_input" style="color: black; background-color: white"/>
         <label for="lastname" class="main_form_label">Lastname</label>
-        <input type="text" id="lastname" class="main_form_input" />
+        <input type="text" id="lastname" class="main_form_input" style="color: black; background-color: white"/>
         <label for="email" class="main_form_label">Email</label>
-        <input type="email" id="email" class="main_form_input" />
-        <input type="button" class="main_form_submit" onclick="validate()" value="Submit"/>
+        <input type="email" id="email" class="main_form_input" style="color: black; background-color: white"/>
+        <input
+          type="button"
+          class="main_form_submit"
+          onclick="validate()"
+          value="Submit"
+        />
       </form>
     </div>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
