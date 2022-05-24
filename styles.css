@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Akshar&family=Catamaran&family=Cormorant+Garamond&family=Fira+Sans&family=Macondo&family=Montserrat&family=Oswald&family=Oxygen&family=Padauk&family=Rubik&display=swap');
 
+body {
+    background: linear-gradient(225deg, #06aabe 0%, #4b718c 100%)
+}
+
+
+
 .mont {
 font-family: Montserrat;
 }
@@ -60,6 +66,7 @@ font-family: Macondo;
   flex-direction: column;
   align-items: center;
   margin: 30px 0;
+  
 }
 
 .font_p {
@@ -93,11 +100,13 @@ font-family: Macondo;
   border: 2px black solid;
   box-shadow: 2px 2px 2px black;
   padding: 15px;
+  background-color: white;
 }
 
 .main_form_header,
 .destination_form_header {
   text-align: center;
+  font-size: 26px;
 }
 
 .main_form_label,
@@ -206,6 +215,12 @@ a:visited {
     padding: 3px;
 }
 
+.resultBox {
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px black;
+}
+
 button {
     background-color: orange;
     border: 2px solid orange;
@@ -255,7 +270,8 @@ button:hover {
 .details_box {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100px;
+  height: 150px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -266,6 +282,19 @@ button:hover {
   border: 2px black solid;
   box-shadow: 2px 2px 2px black;
   padding: 15px;
+  background-color: white;
+}
+
+.details_header {
+    font-size: 26px;
+}
+
+.details_button {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: 500;
+
 }
 
 .resultBox {
