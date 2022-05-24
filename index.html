@@ -10,6 +10,24 @@
   <body>
     <div class="main_container">
       <h1 class="main_header">Travel Companion</h1>
+      <form class='font_form' id="font_form">
+        <p class="font_p">Choose website font:</p>
+        <select name="font_select" id="font_select" id="font_select">
+          <option value="0"></option>
+          <option value="Montserrat" class="mont">Montserrat</option>
+          <option value="Macondo" class="macondo">Macondo</option>
+          <option value="Oswald" class="oswald">Oswald</option>
+          <option value="Oxygen" class="oxygen">Oxygen</option>
+          <option value="Rubik" class="rubik">Rubik</option>
+          <option value="Fira Sans" class="fira_sans">Fira Sans</option>
+          <option value="Akshar" class="akshar">Akshar</option>
+          <option value="Catamaran" class="catamaran">Catamaran</option>
+          <option value="Cormorant Garamond" class="cormorant_garamond">Cormorant Garamond</option>
+          <option value="Padauk" class="padauk">Padauk</option>
+         
+        </select>
+        <input type="submit" value="Submit" onclick="setFont(event)" class="font_submit">
+      </form>
       <form action="destination.html" class="main_form" id="main_form">
         <h3 class="main_form_header">
           View Destination Page
