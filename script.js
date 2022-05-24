@@ -33,6 +33,8 @@ const validate = () => {
   }
 
   if (isValidEmail && isValidFirstname && isValidLastname) {
+    window.localStorage.setItem("firstname", JSON.stringify(firstname));
+    window.localStorage.setItem("lastname", JSON.stringify(lastname));
     location.replace("destination.html");
   }
 };
@@ -86,7 +88,8 @@ const cityData = async (event) => {
   //   location.replace('results.html')
   //   console.log(hotelArray)
   const resultsButton = document.createElement("a");
-  resultsButton.innerText = "See Results";
+  resultsButton.setAttribute('class', 'resultsButton')
+  resultsButton.innerText = "Click Here";
   resultsButton.setAttribute("href", "results.html");
   const form = document.getElementById("destination_form");
   form.appendChild(resultsButton);
@@ -142,9 +145,19 @@ const detailsPage = (id, name) => {
   window.localStorage.setItem("hotelId", JSON.stringify(id));
   window.localStorage.setItem("hotelName", JSON.stringify(name));
   location.replace("details.html");
+  const header = document.getElementById('detailsHeader')
+  header.innerText = name;
 };
 
 const displayHotelDetails = async () => {
+    const imagesContainer = document.getElementById("images_container"); // to hide images_container when clicking button to direclty view hotel info 
+    imagesContainer.style.display = 'none';  
+    // const hotelInfoButton = document.getElementById('hotelInfoButton')
+    // hotelInfoButton.style.display = 'none';
+//     const soleImagesButton = document.getElementById('sole_images_button')
+//    soleImagesButton.style.display = 'block';
+//     const soleInfoButton = document.getElementById('sole_info_button')
+//    soleInfoButton.style.display = 'none';
   const loader = document.getElementById("loader");
   loader.style.display = "block";
   const hotelId = JSON.parse(window.localStorage.getItem("hotelId"));
@@ -234,6 +247,10 @@ const displayHotelDetails = async () => {
      attractionsTable.style.padding = '5px'
     showDetails.appendChild(attractionsTable);
 
+   
+    
+
+
 
 
   loader.style.display = "none";
@@ -246,6 +263,14 @@ const displayHotelDetails = async () => {
 
 
 const displayHotelImages = async () => {
+//    const soleInfoButton = document.getElementById('sole_info_button')
+//    soleInfoButton.style.display = 'block';
+//    const showDetails = document.getElementById('show_details')
+//    showDetails.style.display = 'none'; 
+//    const soleImagesButton = document.getElementById('sole_images_button')
+//    soleInfoButton.style.display = 'none';
+
+
   const loader = document.getElementById("loader");
   loader.style.display = "block";
   const hotelId = JSON.parse(window.localStorage.getItem("hotelId"));
@@ -266,6 +291,9 @@ const displayHotelImages = async () => {
 
   const imagesContainer = document.getElementById("images_container");
 
+
+
+
   photoResults.data.hotelImages.map((result) => {
     const source = result.baseUrl.replace("{size}", "z");
     const image = new Image(350, 250);
@@ -279,6 +307,8 @@ const displayHotelImages = async () => {
     imagesContainer.appendChild(image);
     console.log(image.src);
   });
+  
+
 
   loader.style.display = "none";
 };
