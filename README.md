@@ -18,7 +18,7 @@
 
 - Users enter the website via the homepage on which they encounter a dropdown menu that provides ten choices of web fonts to style the website to their preference.
 - Users have call to action to complete login form (firstname, lastname, and email address) to enter website and reach Destination page.
-- Destinaton page prompts user to enter a city or city/state combination for U.S. and international cities.
+- Destination page prompts user to enter a city or city/state combination for U.S. and international cities.
 - Results Page displays grid of 25 hotels/motels cards related to the user city entry.
 - Clicking "More Details" button on card brings user to Details Page on which they can choose to view Hotel Images or Hotel Info.
 - Hotel Images option displays various images related to the interior, exterior, and amenities offered by the hotel.
@@ -28,8 +28,8 @@
 
 ## Technical Information
 
-- Multiple page application developed with HTML, CSS, and JavaScript utlizing axios for HTTP calls to Hotels API (RapidApi.com).
-- Homepage offers dropdown menu containing ten web fonts (imported from Gooogle Fonts) that dynamically sets all fonts for the website upon user selection.
+- Multiple page application developed with HTML, CSS, and JavaScript utilizing Axios for HTTP calls to Hotels API (RapidApi.com).
+- Homepage offers dropdown menu containing ten web fonts (imported from Google Fonts) that dynamically sets all fonts for the website upon user selection.
 - Entry form requires user to enter valid firstname/lastname (only letters allowed) and email address (must contain "@" and ".") which are validated using regex code.
 - Destination Page allows user to enter city or city/state combination after which two api calls are made to retrieve data. The first, to obtain the city id based 
   on user entry; the second, to obtain a list of twenty-five (25) hotels/motels in close proximity to the user's selection. 
