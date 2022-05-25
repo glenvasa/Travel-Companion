@@ -18,7 +18,6 @@ const validate = () => {
   const firstname = document.getElementById("firstname").value;
   const lastname = document.getElementById("lastname").value;
   const email = document.getElementById("email").value;
-  console.log(email);
 
   // checks for only letters in names
   const regexpName = /^[A-Za-z]+$/;
@@ -30,23 +29,9 @@ const validate = () => {
   const isValidEmail = regexpEmail.test(String(email).toLowerCase());
 
   //user alerted if any entries are not compatible with regex tests above
-  if (isValidEmail) {
-    console.log("valid email");
-  } else {
-    alert("Please enter a valid email address");
-  }
-
-  if (isValidFirstname) {
-    console.log("valid first name");
-  } else {
-    alert("Please enter valid first name");
-  }
-
-  if (isValidLastname) {
-    console.log("valid last name");
-  } else {
-    alert("Please enter valid last name");
-  }
+  if (!isValidFirstname) alert("Please enter valid first name");
+  if (!isValidLastname) alert("Please enter valid last name");
+  if (!isValidEmail) alert("Please enter a valid email address");
 
   //if all 3 entries are valid, user's names are stored in localstorage and user directed to Destination page
   if (isValidEmail && isValidFirstname && isValidLastname) {
@@ -145,7 +130,6 @@ const cityData = async () => {
 const displayResults = (event) => {
   event.preventDefault();
   const results = JSON.parse(window.localStorage.getItem("hotels"));
-  console.log(results);
 
   const container = document.getElementById("result_cards");
 
@@ -335,7 +319,6 @@ const displayHotelImages = async () => {
     image.style.borderRadius = "5px";
 
     imagesContainer.appendChild(image);
-    console.log(image.src);
   });
 
   loader.style.display = "none";
