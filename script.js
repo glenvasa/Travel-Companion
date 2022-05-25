@@ -1,8 +1,4 @@
-window.addEventListener("load", () => {
-  const font = JSON.parse(window.localStorage.getItem("font"));
-  document.body.style.fontFamily = font;
-});
-
+//applies user chosen font throughout site and stores font name in localstorage for application on each page load via "load" eventlistener below
 const setFont = (event) => {
   event.preventDefault();
   console.log("set font");
@@ -12,6 +8,13 @@ const setFont = (event) => {
   window.localStorage.setItem("font", JSON.stringify(value));
 };
 
+//ensures user chosen font applied on each page load
+window.addEventListener("load", () => {
+  const font = JSON.parse(window.localStorage.getItem("font"));
+  document.body.style.fontFamily = font;
+});
+
+//takes user input on homepage and checks to ensure name entries only contain letters and email entry contains '@' and '.' characters
 const validate = () => {
   const firstname = document.getElementById("firstname").value;
   const lastname = document.getElementById("lastname").value;
@@ -23,11 +26,11 @@ const validate = () => {
   const isValidFirstname = regexpName.test(String(firstname).toLowerCase());
   const isValidLastname = regexpName.test(String(lastname).toLowerCase());
 
-  // checks for email pattern
-  // anything@anything.anything
+  // checks for email pattern i.e. anything@anything.anything
   const regexpEmail = /\S+@\S+\.\S+/;
   const isValidEmail = regexpEmail.test(String(email).toLowerCase());
 
+  //user alerted if any entries are not compatible with regex tests above
   if (isValidEmail) {
     console.log("valid email");
   } else {
@@ -46,6 +49,7 @@ const validate = () => {
     alert("Please enter valid last name");
   }
 
+  //if all 3 entries are valid, user's names are stored in localstorage and user directed to Destination page
   if (isValidEmail && isValidFirstname && isValidLastname) {
     window.localStorage.setItem("firstname", JSON.stringify(firstname));
     window.localStorage.setItem("lastname", JSON.stringify(lastname));
@@ -53,6 +57,7 @@ const validate = () => {
   }
 };
 
+//retrieves user's names from localStorage to provide a custom message while city data loads from execution of cityData function below
 const injectName = () => {
   const firstname = JSON.parse(window.localStorage.getItem("firstname"));
   const lastname = JSON.parse(window.localStorage.getItem("lastname"));
@@ -68,8 +73,11 @@ const injectName = () => {
 
 let hotelArray;
 
-const cityData = async (event) => {
-  // event.preventDefault()
+//first api call retrieves the destinationId based on the user's city entry
+//second call immediately follows and retrieves list of 25 hotels based on destinationId
+//hotel list assigned to hotelArray variable and saved in localStorage for use in displayResults() below
+const cityData = async () => {
+  //css animation present while all website api calls loading and data displayed on page for better user experience
   const loader = document.getElementById("loader");
   loader.style.display = "block";
   injectName();
@@ -88,7 +96,6 @@ const cityData = async (event) => {
 
   const cityResults = await axios.request(cityOptions);
   const destId = cityResults.data.suggestions[0].entities[0].destinationId;
-  console.log(destId);
 
   const hotelOptions = {
     method: "GET",
@@ -135,6 +142,7 @@ const cityData = async (event) => {
   loader.style.display = "none";
 };
 
+//retrieves hotels previously stored in localStorage and displays 25 hotel cards on Results page
 const displayResults = (event) => {
   event.preventDefault();
   const results = JSON.parse(window.localStorage.getItem("hotels"));
@@ -178,8 +186,9 @@ const displayResults = (event) => {
   });
 };
 
+//saves hotelId and hotelName in localStorage for use in displayHotelDetails and displayHotelImages below
+//directs user to Details page for choice of those two options
 const detailsPage = (id, name) => {
-  console.log(id);
   window.localStorage.setItem("hotelId", JSON.stringify(id));
   window.localStorage.setItem("hotelName", JSON.stringify(name));
   location.replace("details.html");
@@ -187,9 +196,8 @@ const detailsPage = (id, name) => {
   header.innerText = name;
 };
 
+//api call using hotelId to retrieve/display hotel price, amenities, and attractions on Details page
 const displayHotelDetails = async () => {
-  const imagesContainer = document.getElementById("images_container"); // to hide images_container when clicking button to directly view hotel info
-  imagesContainer.style.display = "none";
   const loader = document.getElementById("loader");
   loader.style.display = "block";
   const hotelId = JSON.parse(window.localStorage.getItem("hotelId"));
@@ -216,12 +224,9 @@ const displayHotelDetails = async () => {
   detailsBox.style.display = "none";
   const detailResults = await axios.request(detailOptions);
 
-  console.log(detailResults.data.data.body);
-
   const price =
     detailResults.data.data.body.propertyDescription.featuredPrice.currentPrice
       .formatted;
-  console.log(price);
 
   const pricing = document.getElementById("pricing");
   const name = document.createElement("h2");
@@ -288,6 +293,7 @@ const displayHotelDetails = async () => {
   loader.style.display = "none";
 };
 
+//api call using hotelId (different endpoint than displayHotelDetails above) to retrive/display hotel images on Details page
 const displayHotelImages = async () => {
   const loader = document.getElementById("loader");
   loader.style.display = "block";
@@ -318,6 +324,7 @@ const displayHotelImages = async () => {
 
   imagesContainer.before(name);
 
+  //baseUrl had {size} at the end which needed to be replaced by one of 10 letters which represent different image sizing/resolutions
   photoResults.data.hotelImages.map((result) => {
     const source = result.baseUrl.replace("{size}", "z");
     const image = new Image(350, 250);
