@@ -3,6 +3,7 @@
 - Client-side hotel finder developed with HTML, CSS, and JavaScript. 
 - Axios dependency used to retrieve data from Hotels API via RapiApi.com
 - Local Storage utilized to store user credentials, font and hotel choices, and data retrieved from multiple api calls.
+- Download .zip files or clone repository and run "npm install" in project directory to install axios.
 
 ## Screenshots
 
