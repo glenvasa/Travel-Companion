@@ -7,8 +7,11 @@
 
 ## Screenshots
 
-<img src="src/images/Screenshot (247).png"> 
-<img src="src/images/Screenshot (252).png">
+<img src="images/TC-homepage.png"> 
+<img src="images/TC-destination.png">
+<img src="images/TC-results.png">
+<img src="images/TC-hotelInfo.png">
+<img src="images/TC-hotelImages.png">
 
 ## Features
 
