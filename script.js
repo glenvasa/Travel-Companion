@@ -1,22 +1,16 @@
-window.addEventListener('load', () => {
-    const font = JSON.parse(window.localStorage.getItem("font")); 
-    document.body.style.fontFamily = font
-})
+window.addEventListener("load", () => {
+  const font = JSON.parse(window.localStorage.getItem("font"));
+  document.body.style.fontFamily = font;
+});
 
 const setFont = (event) => {
-    event.preventDefault()
-    console.log('set font')
-    const fontSelect = document.getElementById('font_select')
-    const value = fontSelect.value
-    document.body.style.fontFamily = value
-    window.localStorage.setItem("font", JSON.stringify(value));
-}
-// document.getElementById("font_select").onchange = function () {
-//   console.log(this.value);
-//   document.body.style.fontFamily = this.value;
-// };
-
-
+  event.preventDefault();
+  console.log("set font");
+  const fontSelect = document.getElementById("font_select");
+  const value = fontSelect.value;
+  document.body.style.fontFamily = value;
+  window.localStorage.setItem("font", JSON.stringify(value));
+};
 
 const validate = () => {
   const firstname = document.getElementById("firstname").value;
@@ -120,32 +114,24 @@ const cityData = async (event) => {
 
   hotelArray = hotelResults.data.data.body.searchResults.results;
   window.localStorage.setItem("hotels", JSON.stringify(hotelArray));
-  //   location.replace('results.html')
-  //   console.log(hotelArray)
   const resultsButton = document.createElement("a");
   resultsButton.setAttribute("class", "resultsButton");
-  resultsButton.style.color = 'navajowhite';
+  resultsButton.style.color = "navajowhite";
   resultsButton.innerText = "Click Here";
   resultsButton.setAttribute("href", "results.html");
-//   const form = document.getElementById("destination_form");
 
-  const resconstainer = document.getElementById('result_container')
-  const resultBox = document.createElement('div')
-  resultBox.setAttribute('class', 'resultBox')
-  resultBox.appendChild(resultsButton)
-  resconstainer.appendChild(resultBox)
-//   const header = document.getElementById('destination_form_header')
-//   const destinput = document.getElementById('destination_form_input')
-//   const submit = document.getElementById('destination_form_submit')
+  const resconstainer = document.getElementById("result_container");
+  const resultBox = document.createElement("div");
+  resultBox.setAttribute("class", "resultBox");
+  resultBox.appendChild(resultsButton);
+  resconstainer.appendChild(resultBox);
+
   const fullName = document.getElementById("fullName");
   fullName.style.display = "none";
 
-  const destform = document.getElementById('destination_form')
-  destform.style.display = 'none'
-//   header.style.display = 'none';
-//   submit.style.display = 'none'
-//   destinput.style.display = 'noned';
-  
+  const destform = document.getElementById("destination_form");
+  destform.style.display = "none";
+
   loader.style.display = "none";
 };
 
@@ -202,14 +188,8 @@ const detailsPage = (id, name) => {
 };
 
 const displayHotelDetails = async () => {
-  const imagesContainer = document.getElementById("images_container"); // to hide images_container when clicking button to direclty view hotel info
+  const imagesContainer = document.getElementById("images_container"); // to hide images_container when clicking button to directly view hotel info
   imagesContainer.style.display = "none";
-  // const hotelInfoButton = document.getElementById('hotelInfoButton')
-  // hotelInfoButton.style.display = 'none';
-  //     const soleImagesButton = document.getElementById('sole_images_button')
-  //    soleImagesButton.style.display = 'block';
-  //     const soleInfoButton = document.getElementById('sole_info_button')
-  //    soleInfoButton.style.display = 'none';
   const loader = document.getElementById("loader");
   loader.style.display = "block";
   const hotelId = JSON.parse(window.localStorage.getItem("hotelId"));
@@ -281,8 +261,8 @@ const displayHotelDetails = async () => {
   const heading = document.createElement("th");
   heading.style.fontSize = "20px";
   heading.style.marginBottom = "10px";
-  heading.style.color = 'white'
-  //   heading.style.textDecoration = 'underline'
+  heading.style.color = "white";
+
   let attractionsTitle =
     detailResults.data.data.body.overview.overviewSections[1].title;
   heading.innerText = attractionsTitle;
@@ -291,8 +271,7 @@ const displayHotelDetails = async () => {
 
   let attractions =
     detailResults.data.data.body.overview.overviewSections[1].content;
-  //   console.log(attractions)
-  //   const contentItemsContainer = document.createElement("div");
+
   attractions.map((result) => {
     const attractionRow = document.createElement("tr");
     attractionRow.setAttribute("class", "tableRow");
@@ -302,8 +281,6 @@ const displayHotelDetails = async () => {
     attractionsTable.appendChild(attractionRow);
   });
 
-  // attractionsContainer.appendChild(heading);
-  // attractionsContainer.appendChild(contentItemsContainer);
   attractionsTable.style.border = "2px solid black";
   attractionsTable.style.padding = "5px";
   showDetails.appendChild(attractionsTable);
@@ -312,13 +289,6 @@ const displayHotelDetails = async () => {
 };
 
 const displayHotelImages = async () => {
-  //    const soleInfoButton = document.getElementById('sole_info_button')
-  //    soleInfoButton.style.display = 'block';
-  //    const showDetails = document.getElementById('show_details')
-  //    showDetails.style.display = 'none';
-  //    const soleImagesButton = document.getElementById('sole_images_button')
-  //    soleInfoButton.style.display = 'none';
-
   const loader = document.getElementById("loader");
   loader.style.display = "block";
 
