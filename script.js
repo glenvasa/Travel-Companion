@@ -1,7 +1,6 @@
 //applies user chosen font throughout site and stores font name in localstorage for application on each page load via "load" eventlistener below
 const setFont = (event) => {
   event.preventDefault();
-  console.log("set font");
   const fontSelect = document.getElementById("font_select");
   const value = fontSelect.value;
   document.body.style.fontFamily = value;
