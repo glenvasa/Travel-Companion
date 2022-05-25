@@ -1,8 +1,9 @@
 # Travel Companion
 
 - Github repository: https://github.com/glenvasa/Travel-Companion
-- Client-side hotel finder (for U.S. and International destinations) developed with HTML, CSS, and JavaScript. 
-- Axios used to retrieve data from Hotels API via RapidApi.com
+- Web application that locates hotels (for U.S. and International destinations).
+- Developed with HTML, CSS, and JavaScript. 
+- Axios HTTP client retrieves data from Hotels API via RapidApi.com
 - Local Storage utilized to store user credentials, font and hotel choices, and data retrieved from api calls.
 
 ## Screenshots
@@ -16,14 +17,14 @@
 ## Features
 
 - Users enter the website via the homepage on which they encounter a dropdown menu that provides ten choices of web fonts to style the website to their preference.
-- Users have call to action to navigate to Destination Page by entering their firstname, lastname, and email address.
-- Users immediately brought to Choose Destinaton page on which they are prompted to enter a City or City, State combination.
-- 25 hotels/motels related to the user entry are presented in card form displaying name and address on the Results Page.
+- Users have call to action to complete login form (firstname, lastname, and email address) to enter website and reach Destination page.
+- Destinaton page prompts user to enter a City or City, State combination for U.S. and international cities.
+- Results Page displays grid of 25 hotels/motels cards related to the user city entry.
 - Clicking "More Details" button on card brings user to Details Page on which they can choose to view Hotel Images or Hotel Info.
 - Hotel Images option displays various images related to the interior, exterior, and ameneties offered by the hotel.
 - Hotel Info option displays the current special per night price, describes various amenetities, and provides a table of attractions ("What's Around") 
   containing walking/driving distance data.
-- Users may navigate between pages/options via navbar links.
+- Users may navigate to/from/between pages/options via navbar links.
 
 ## Technical Information
 
