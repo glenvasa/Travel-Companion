@@ -7,8 +7,11 @@
 
 ## Screenshots
 
-<img src="src/images/Screenshot (247).png"> 
-<img src="src/images/Screenshot (252).png">
+<img src="src/images/homepage.png"> 
+<img src="src/images/destination.png">
+<img src="src/images/results.png">
+<img src="src/images/hotelInfo.png">
+<img src="src/images/hotelImages.png">
 
 ## Features
 
