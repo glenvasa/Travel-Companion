@@ -233,6 +233,10 @@ a:visited {
   color: inherit;
 }
 
+#fullName {
+  text-align: center;
+}
+
 .results_container {
 }
 
@@ -294,7 +298,7 @@ button:hover {
   text-align: center;
   border-radius: 5px;
   box-shadow: 2px 2px 2px #800020;
-  line-height: 1.1;
+  line-height: .96;
 }
 
 .hotel_name {
