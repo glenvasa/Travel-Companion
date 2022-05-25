@@ -67,7 +67,6 @@ const injectName = () => {
   );
   const fullName = document.createElement("h3");
   fullName.setAttribute("id", "fullName");
-  fullName.style.color = "black";
   fullName.style.textShadow = ".5px .5px .5px gray";
   fullName.innerText = `${firstname}, we are searching for your city`;
   destinationFormHeader.before(fullName);
