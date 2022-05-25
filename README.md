@@ -39,5 +39,5 @@
 
 ## Deployed Application
 
-- https://
+- https://travel-companion-22.netlify.app/
 
