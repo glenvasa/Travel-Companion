@@ -1,5 +1,6 @@
 # Travel Companion
 
+- https://github.com/glenvasa/Travel-Companion
 - Client-side hotel finder (for U.S. and International destinations) developed with HTML, CSS, and JavaScript. 
 - Axios dependency used to retrieve data from Hotels API via RapidApi.com
 - Local Storage utilized to store user credentials, font and hotel choices, and data retrieved from multiple api calls.
