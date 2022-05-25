@@ -67,9 +67,6 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.main_container {
-}
-
 .font_form {
   position: absolute;
   top: 24%;
@@ -184,7 +181,6 @@ body {
   font-size: large;
 }
 
-
 .nav_link_home {
   color: #06aabe;
   width: 150px;
@@ -240,9 +236,6 @@ a:visited {
   text-align: center;
 }
 
-.results_container {
-}
-
 .resultsButton {
   margin-top: 7px;
   border: 1px solid #800020;
@@ -278,9 +271,6 @@ button {
   color: navajowhite;
 }
 
-button:hover {
-}
-
 .result_cards {
   display: grid;
   grid: auto-flow 1fr / repeat(auto-fill, 20em);
@@ -301,12 +291,11 @@ button:hover {
   text-align: center;
   border-radius: 5px;
   box-shadow: 2px 2px 2px #800020;
-  line-height: .96;
+  line-height: 0.96;
 }
 
 .hotel_name {
   color: black;
-  /* text-decoration: underline; */
 }
 
 .details_box {
@@ -360,7 +349,6 @@ button:hover {
 }
 
 .amenitiesContainer p {
-  /* color: lightgoldenrodyellow; */
   font-weight: 400;
   color: white;
   background-color: #800020;
@@ -378,8 +366,6 @@ button:hover {
 
 .show_details {
   display: block;
-  /* grid: auto-flow 1fr / repeat(auto-fill, 25em); */
-  /* min-height: 100vh; */
   margin-left: 3%;
   margin-right: 3%;
   margin-top: 3%;
