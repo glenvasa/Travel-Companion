@@ -46,10 +46,25 @@ font-family: Macondo;
     font-family: "Indie Flower"
 }
 
-.main_header,
-.destination_header {
+.main_header {
   position: absolute;
   top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
+
+.destination_header {
+    position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 45px;
+}
+
+.main_header ~ h4 {
+  position: absolute;
+  top: 17%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -59,7 +74,7 @@ font-family: Macondo;
 
 .font_form {
   position: absolute;
-  top: 20%;
+  top: 24%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -86,13 +101,29 @@ font-family: Macondo;
 .font_select {
 }
 
-.main_form,
+.main_form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+  border: 2px black solid;
+  box-shadow: 2px 2px 2px black;
+  padding: 15px;
+  background-color: navajowhite;
+}
+
 .destination_form {
   display: flex;
   flex-direction: column;
   width: 50%;
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 20%;
@@ -327,7 +358,7 @@ button:hover {
     text-align: center;
 }
 
-.amenitiesContainer p{
+.amenitiesContainer p {
     /* color: lightgoldenrodyellow; */
    font-weight: 400;
    color: white;
